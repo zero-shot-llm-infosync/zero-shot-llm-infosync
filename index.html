@@ -69,7 +69,11 @@
         <img src="figures/methodology.png" style="max-width:100%;">
         <figcaption>Overview of our LLM-driven table synchronization framework.</figcaption>
     </figure> -->
-    
+    <h2> Results </h2>
+			<p style="text-align: justify;"> 
+			Our main results on updating information are shown in <A href="#table1">Table 1</A>, demonstrate that our proposed decomposition technique significantly outperforms several baselines.
+			</p>
+			    <p style="margin-left:10%; margin-right:10%;"><A id="table1"><img src="figures/result_table.png" style="max-width:95%;"></A></p>
     <h2>Dataset</h2>
 <p style="text-align: justify;">
     To evaluate multilingual table synchronization, we introduce the <strong>INFOUPDATE dataset</strong>, which simulates the real-world process of updating outdated Wikipedia tables. This dataset consists of approximately <strong>950 annotated instances</strong> spanning <strong>9 categories</strong> (e.g., Album, Athlete, City, College, Company, Country, Musician, Person, and Stadium) across <strong>14 languages</strong>, including Spanish, French, German, Arabic, Hindi, Korean, Russian, Afrikaans, Cebuano, Swedish, Dutch, Turkish, and Chinese.
@@ -85,38 +89,41 @@
 <p style="text-align: justify;">
     The objective of the Information Synchronization task is to update rows in the Source Table (TS) using the Reference Table (TR) so that the generated Output Table (TO) closely matches the Gold Table (TG). 
 </p>
+ <h3>Dataset Statistics</h3>
+    <p style="text-align: justify;">
+        Below is the dataset breakdown by language and category, showcasing the diversity of data collected for evaluating information synchronization.
+    </p>
+    <div>
+        <table style="margin-left:15%; margin-right:15%; border-collapse: collapse; width: 70%;" border="1">
+            <thead>
+                <tr>
+                    <th>Language</th>
+                    <th>Tables</th>
+                    <th>Category</th>
+                    <th>Tables</th>
+                </tr>
+            </thead>
+            <tbody align="center">
+                <tr><td>Afrikaans</td><td>7</td><td>Album</td><td>76</td></tr>
+                <tr><td>Arabic</td><td>120</td><td>Athlete</td><td>70</td></tr>
+                <tr><td>Cebuano</td><td>4</td><td>City</td><td>108</td></tr>
+                <tr><td>German</td><td>105</td><td>College</td><td>112</td></tr>
+                <tr><td>English</td><td>206</td><td>Company</td><td>148</td></tr>
+                <tr><td>Spanish</td><td>23</td><td>Country</td><td>122</td></tr>
+                <tr><td>French</td><td>123</td><td>Musician</td><td>138</td></tr>
+                <tr><td>Hindi</td><td>64</td><td>Person</td><td>108</td></tr>
+                <tr><td>Korean</td><td>93</td><td>Stadium</td><td>66</td></tr>
+                <tr><td>Dutch</td><td>21</td><td></td><td></td></tr>
+                <tr><td>Russian</td><td>131</td><td></td><td></td></tr>
+                <tr><td>Swedish</td><td>15</td><td></td><td></td></tr>
+                <tr><td>Turkish</td><td>18</td><td></td><td></td></tr>
+                <tr><td>Chinese</td><td>18</td><td></td><td></td></tr>
+            </tbody>
+            <caption>Dataset Statistics - Number of tables by language and category.</caption>
+        </table>
+    </div>
 
-<h3>Dataset Statistics</h3>
-<table style="margin-left:15%; margin-right:15%;">
-    <thead>
-        <tr>
-            <th>Language</th>
-            <th>Number of Tables</th>
-        </tr>
-    </thead>
-    <tbody align="center">
-        <tr><td>Afrikaans</td><td>7</td></tr>
-        <tr><td>Arabic</td><td>120</td></tr>
-        <tr><td>Cebuano</td><td>4</td></tr>
-        <tr><td>German</td><td>105</td></tr>
-        <tr><td>English</td><td>206</td></tr>
-        <tr><td>Spanish</td><td>23</td></tr>
-        <tr><td>French</td><td>123</td></tr>
-        <tr><td>Hindi</td><td>64</td></tr>
-        <tr><td>Korean</td><td>93</td></tr>
-        <tr><td>Dutch</td><td>21</td></tr>
-        <tr><td>Russian</td><td>131</td></tr>
-        <tr><td>Swedish</td><td>15</td></tr>
-        <tr><td>Turkish</td><td>18</td></tr>
-        <tr><td>Chinese</td><td>18</td></tr>
-    </tbody>
-    <caption>Number of tables available in each language.</caption>
-</table>
 
-<h3>Verification and Quality Control</h3>
-<p style="text-align: justify;">
-    To ensure the accuracy of INFOUPDATE, human annotators manually verify that (a) the Gold Table correctly integrates all relevant information from the Source and Reference tables without redundancy and (b) all conflicts or missing data are resolved without introducing new, unverifiable information. This rigorous quality control ensures that INFOUPDATE serves as a reliable benchmark for evaluating multilingual table synchronization models.
-</p>
 
 
 
