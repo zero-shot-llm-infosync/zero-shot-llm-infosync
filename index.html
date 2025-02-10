@@ -70,43 +70,54 @@
         <figcaption>Overview of our LLM-driven table synchronization framework.</figcaption>
     </figure> -->
     
-    <h2>Dataset Statistics</h2>
-    <p style="text-align: justify;">
-        Our dataset spans multiple Wikipedia categories and languages. Below is a summary of dataset statistics:
-    </p>
-    <div>
-        <table style="margin-left:15%; margin-right:15%;">
-            <thead>
-                <tr>
-                    <th>Data Split</th>
-                    <th>Number of Tables</th>
-                    <th>Number of Pairs</th>
-                </tr>
-            </thead>
-            <tbody align="center">
-                <tr><td>Train</td><td>1800</td><td>17000</td></tr>
-                <tr><td>Dev</td><td>250</td><td>2250</td></tr>
-                <tr><td>Test</td><td>250</td><td>2250</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <br><br>
-    <div style="text-align:center;">
-        <table>
-            <thead>
-                <tr>
-                    <th>Data Split</th>
-                    <th>Cohen's Kappa</th>
-                    <th>Human Performance</th>
-                    <th>Majority Agreement</th>
-                </tr>
-            </thead>
-            <tbody align="center">
-                <tr><td>Dev</td><td>0.81</td><td>80.5%</td><td>94.2%</td></tr>
-                <tr><td>Test</td><td>0.79</td><td>82.1%</td><td>95.0%</td></tr>
-            </tbody>
-        </table>
-    </div>
+    <h2>Dataset</h2>
+<p style="text-align: justify;">
+    To evaluate multilingual table synchronization, we introduce the <strong>INFOUPDATE dataset</strong>, which simulates the real-world process of updating outdated Wikipedia tables. This dataset consists of approximately <strong>950 annotated instances</strong> spanning <strong>9 categories</strong> (e.g., Album, Athlete, City, College, Company, Country, Musician, Person, and Stadium) across <strong>14 languages</strong>, including Spanish, French, German, Arabic, Hindi, Korean, Russian, Afrikaans, Cebuano, Swedish, Dutch, Turkish, and Chinese.
+</p>
+<p style="text-align: justify;">
+    The dataset construction process involves extracting two versions of the same Wikipedia table entity from different time periods. Specifically, we extract an <strong>old version</strong> from 2018 (Source Table) and a <strong>new version</strong> from 2023 (Reference Table). The goal is to update the outdated source table using information from the reference table while ensuring alignment with a manually curated <strong>gold-standard table</strong>.
+</p>
+<ul>
+    <li><strong>Source Table (TS):</strong> The outdated version of an entity in language Li.</li>
+    <li><strong>Reference Table (TR):</strong> The updated version of the entity in a different language Lj (i ≠ j).</li>
+    <li><strong>Gold Table (TG):</strong> A human-annotated table that integrates and synchronizes all available updates.</li>
+</ul>
+<p style="text-align: justify;">
+    The objective of the Information Synchronization task is to update rows in the Source Table (TS) using the Reference Table (TR) so that the generated Output Table (TO) closely matches the Gold Table (TG). 
+</p>
+
+<h3>Dataset Statistics</h3>
+<table style="margin-left:15%; margin-right:15%;">
+    <thead>
+        <tr>
+            <th>Language</th>
+            <th>Number of Tables</th>
+        </tr>
+    </thead>
+    <tbody align="center">
+        <tr><td>Afrikaans</td><td>7</td></tr>
+        <tr><td>Arabic</td><td>120</td></tr>
+        <tr><td>Cebuano</td><td>4</td></tr>
+        <tr><td>German</td><td>105</td></tr>
+        <tr><td>English</td><td>206</td></tr>
+        <tr><td>Spanish</td><td>23</td></tr>
+        <tr><td>French</td><td>123</td></tr>
+        <tr><td>Hindi</td><td>64</td></tr>
+        <tr><td>Korean</td><td>93</td></tr>
+        <tr><td>Dutch</td><td>21</td></tr>
+        <tr><td>Russian</td><td>131</td></tr>
+        <tr><td>Swedish</td><td>15</td></tr>
+        <tr><td>Turkish</td><td>18</td></tr>
+        <tr><td>Chinese</td><td>18</td></tr>
+    </tbody>
+    <caption>Number of tables available in each language.</caption>
+</table>
+
+<h3>Verification and Quality Control</h3>
+<p style="text-align: justify;">
+    To ensure the accuracy of INFOUPDATE, human annotators manually verify that (a) the Gold Table correctly integrates all relevant information from the Source and Reference tables without redundancy and (b) all conflicts or missing data are resolved without introducing new, unverifiable information. This rigorous quality control ensures that INFOUPDATE serves as a reliable benchmark for evaluating multilingual table synchronization models.
+</p>
+
 
 
 		
